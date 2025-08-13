@@ -1,0 +1,20 @@
+# Core data science libraries
+numpy
+pandas
+scikit-learn
+scipy
+hdbscan
+sklearn-extra
+tslearn
+torch
+torch-geometric
+torch-cluster
+matplotlib
+seaborn
+plotly
+umap-learn
+joblib
+tqdm
+natsort
+networkx
+python-louvain
