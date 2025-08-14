@@ -13,6 +13,12 @@ This repository implements a hierarchical clustering approach to analyze EV usag
 
 The framework processes EV telemetry data including State of Charge (SOC), mileage, charging status, and temporal features to discover meaningful usage patterns and driver behaviors.
 
+## Framework
+
+![Clustering Framework Architecture](clustering_framework.png)
+
+The diagram above illustrates the overall pipeline, showing the flow from raw data preprocessing and feature engineering to clustering analysis at both levels.
+
 ## Installation
 
 1. Clone the repository:
