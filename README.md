@@ -150,7 +150,7 @@ See `requirements.txt` for the complete list.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Creative Commons Zero v1.0 Universal - see the [LICENSE](LICENSE) file for details.
 
 ## Citation
 
