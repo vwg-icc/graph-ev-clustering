@@ -145,8 +145,7 @@ See `requirements.txt` for the complete list.
 ## Development Status
 
 ⚠️ **Note**: Some visualization and analysis components are still work in progress and will be uploaded soon. This includes:
-- Advanced plotting utilities in Level-Two
-- Additional analysis notebooks
+- Advanced plotting utilities in Level-One
 - Extended visualization options
 
 ## License
