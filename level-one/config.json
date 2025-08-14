@@ -1,0 +1,12 @@
+{
+    "features_dir": "files/preprocessed/VINS_50/10min/",
+    "distance_threshold": 500,
+    "n_clusters": 6,
+    "cluster_algo": "kmedoids",
+    "max_iter": 300,
+    "random_state": 0,
+    "distance_metric": "manhattan",
+    "precomputed": "precomputed",
+    "experiment": "1",
+    "dr": false
+}

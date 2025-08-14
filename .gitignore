@@ -1,0 +1,11 @@
+level-one/logs/*
+level-one/files/*
+level-one/results/*
+level-one/__pycache__
+clustering_results_all.csv
+level-two/Louvain*
+level-two/figures/*
+level-two/MVTS.npy
+level-two/results/*
+level-two/ev-clustering-env
+level-two/__pycache__
