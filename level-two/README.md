@@ -80,22 +80,14 @@ All visualizations are saved in the `figures/` directory:
 - Overall distribution of community sizes
 - Useful for understanding community balance
 
-## Model Architecture
+#### Distribution and Seasonality
 
-The ETE Cluster Model consists of:
+[`l2_cluster_plotting.py`](l2_cluster_plotting.py) provides standalone visualization tools for analyzing Level-Two clustering results. Use it to generate  and community statistics from existing community assignment CSV files.
 
-1. **LSTM Encoder**: Processes time series data to create embeddings
-2. **Graph Construction**: Builds k-nearest neighbor graphs from embeddings
-3. **Graph Convolution**: Applies ClusterGCNConv for node representation learning
-4. **DMoN Pooling**: Performs differentiable clustering with modularity optimization
-5. **Multi-objective Loss**: Combines multiple objectives for robust training
-
-## Key Components
-
-- `train_model.py`: Main training script with full pipeline
-- `ETEClusterModel.py`: Neural network model definition
-- `config.py`: Configuration parameters for all components
-- `Autoencoder.py`: Additional neural network utilities
+**Basic usage:**
+```bash
+python l2_cluster_plotting.py results/<data.csv> --plots all --output-dir figures/
+```
 
 ## Troubleshooting
 
