@@ -73,21 +73,6 @@ This script:
 - Generates cluster assignments
 - Creates visualizations and saves results
 
-3. **Error Bar Analysis** (Optional - for optimal k-value selection):
-```bash
-python run_error_bar_experiments.py --config config.json \
-    --k_clusters 5 6 7 8 9 \
-    --random_seed_vals 0 1 2 3 4 5 6 7 8 9 \
-    --n_jobs 4 \
-    --save_csv True \
-    --output_dir ./results/
-```
-This script:
-- Runs clustering experiments across multiple k-values and random seeds
-- Generates error bar data for determining optimal cluster numbers
-- Outputs results that can be used for "picking the right k-value" analysis
-- Creates CSV files with clustering metrics for statistical analysis
-
 #### Key Components
 - `preprocessing.py`: Time series preprocessing utilities
 - `feature_engineering.py`: Feature extraction and engineering

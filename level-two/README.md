@@ -24,49 +24,6 @@ Level-Two takes the clustering results from Level-One and applies an End-to-End 
 
 Edit `config.py` to customize the following sections:
 
-### Data Configuration (`DATA_CONFIG`)
-```python
-DATA_CONFIG = {
-    'csv_file': '../level-one/files/preprocessed/VINS_50/10min/kmedoids/K_6_distance_manhattan_random_0/output.csv',
-    'method': 'kmedoids',  # clustering method used in level-one
-    'index_column': 'vin',
-    'columns': 'week',
-    'values': 'cluster',
-    'fill_na_value': -2,
-    'drop_columns': ['covid']  # columns to exclude from output
-}
-```
-
-### Model Configuration (`MODEL_CONFIG`)
-```python
-MODEL_CONFIG = {
-    'dim': 1,                    # input feature dimension
-    'encoder_size': 128,         # LSTM encoder hidden size
-    'num_neighbors': 15,         # number of neighbors for graph construction
-    'num_clusters': 12,          # target number of communities
-    'random_seed': 11            # for reproducibility
-}
-```
-
-### Training Configuration (`TRAINING_CONFIG`)
-```python
-TRAINING_CONFIG = {
-    'max_epochs': 75,           # maximum training epochs
-    'learning_rate': 0.01       # Adam optimizer learning rate
-}
-```
-
-### Visualization Configuration (`VIZ_CONFIG`)
-```python
-VIZ_CONFIG = {
-    'figure_size_heatmap': (10, 10),      # heatmap dimensions
-    'figure_size_histogram': (12, 8),     # histogram dimensions
-    'weeks_to_display': 52,               # number of weeks to show
-    'output_format': 'pdf',               # output format (pdf/png)
-    'dpi': 150                            # image resolution
-}
-```
-
 ## Usage
 
 ### Basic Usage
