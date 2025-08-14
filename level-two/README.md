@@ -113,18 +113,6 @@ The ETE Cluster Model consists of:
 - Monitor loss values to ensure proper convergence
 - Adjust `num_clusters` based on your dataset size and requirements
 
-## Dependencies
-
-Key requirements:
-- PyTorch
-- PyTorch Geometric  
-- NumPy
-- Pandas
-- Matplotlib
-- Seaborn
-
-See the main `requirements.txt` for complete dependency list.
-
 ---
 
 For questions about Level-Two specifically, refer to the main repository README or contact the development team.

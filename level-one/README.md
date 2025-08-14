@@ -11,12 +11,6 @@ The Level-One pipeline consists of two main stages:
 
 The output from these steps is stored in the structured directory path and serves as input for level-two clustering.
 
-## Pipeline Architecture
-
-![Clustering Framework Architecture](clustering_framework.png)
-
-The diagram above illustrates the overall pipeline, showing the flow from raw data preprocessing and feature engineering to clustering analysis at both levels.
-
 ## Main Scripts
 
 #### 1. `run_preproc_feat_eng.py`
