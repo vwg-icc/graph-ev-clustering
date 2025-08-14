@@ -1,91 +1,110 @@
 import torch.nn as nn
 
+
 class Encoder(nn.Module):
+    """
+    LSTM-based Encoder for time-series data.
 
-  def __init__(self, seq_len, n_features, embedding_dim=64):
+    Args:
+        seq_len (int): Length of the input sequence.
+        n_features (int): Number of features in each timestep.
+        embedding_dim (int, optional): Size of the latent embedding. Default is 64.
 
-    super(Encoder, self).__init__()
+    Architecture:
+        - LSTM1: n_features → 2 * embedding_dim
+        - LSTM2: hidden_dim → embedding_dim
+    """
 
-    self.seq_len, self.n_features = seq_len, n_features
+    def __init__(self, seq_len, n_features, embedding_dim=64):
+        super(Encoder, self).__init__()
 
-    self.embedding_dim, self.hidden_dim = embedding_dim, 2 * embedding_dim
+        self.seq_len = seq_len
+        self.n_features = n_features
+        self.embedding_dim = embedding_dim
+        self.hidden_dim = 2 * embedding_dim
 
-    self.rnn1 = nn.LSTM(
+        self.rnn1 = nn.LSTM(
+            input_size=n_features,
+            hidden_size=self.hidden_dim,
+            num_layers=1,
+            batch_first=True
+        )
 
-      input_size=n_features,
+        self.rnn2 = nn.LSTM(
+            input_size=self.hidden_dim,
+            hidden_size=embedding_dim,
+            num_layers=1,
+            batch_first=True
+        )
 
-      hidden_size=self.hidden_dim,
+    def forward(self, x):
+        """
+        Forward pass for the encoder.
 
-      num_layers=1,
+        Args:
+            x (Tensor): Input tensor of shape (batch_size, seq_len, n_features).
 
-      batch_first=True
+        Returns:
+            Tensor: Encoded latent representation of shape (batch_size, embedding_dim).
+        """
+        x = x.reshape(-1, self.seq_len, self.n_features)
+        x, _ = self.rnn1(x)
+        x, (hidden_n, _) = self.rnn2(x)
+        return hidden_n.reshape(-1, self.embedding_dim)
 
-    )
 
-    self.rnn2 = nn.LSTM(
-
-      input_size=self.hidden_dim,
-
-      hidden_size=embedding_dim,
-
-      num_layers=1,
-
-      batch_first=True
-
-    )
-
-  def forward(self, x):
-
-    x = x.reshape((-1, self.seq_len, self.n_features))
-
-    x, (_, _) = self.rnn1(x)
-
-    x, (hidden_n, _) = self.rnn2(x)
-
-    return hidden_n.reshape((-1, self.embedding_dim))
-  
 class Decoder(nn.Module):
+    """
+    LSTM-based Decoder for time-series data reconstruction.
 
-  def __init__(self, seq_len, input_dim=64, n_features=1):
+    Args:
+        seq_len (int): Length of the output sequence.
+        input_dim (int, optional): Size of the latent embedding. Default is 64.
+        n_features (int, optional): Number of features in each timestep. Default is 1.
 
-    super(Decoder, self).__init__()
+    Architecture:
+        - LSTM1: input_dim → input_dim
+        - LSTM2: input_dim → hidden_dim
+        - Linear: hidden_dim → n_features
+    """
 
-    self.seq_len, self.input_dim = seq_len, input_dim
+    def __init__(self, seq_len, input_dim=64, n_features=1):
+        super(Decoder, self).__init__()
 
-    self.hidden_dim, self.n_features = 2 * input_dim, n_features
+        self.seq_len = seq_len
+        self.input_dim = input_dim
+        self.hidden_dim = 2 * input_dim
+        self.n_features = n_features
 
-    self.rnn1 = nn.LSTM(
+        self.rnn1 = nn.LSTM(
+            input_size=input_dim,
+            hidden_size=input_dim,
+            num_layers=1,
+            batch_first=True
+        )
 
-      input_size=input_dim,
+        self.rnn2 = nn.LSTM(
+            input_size=input_dim,
+            hidden_size=self.hidden_dim,
+            num_layers=1,
+            batch_first=True
+        )
 
-      hidden_size=input_dim,
+        self.output_layer = nn.Linear(self.hidden_dim, n_features)
 
-      num_layers=1,
+    def forward(self, x):
+        """
+        Forward pass for the decoder.
 
-      batch_first=True
+        Args:
+            x (Tensor): Latent representation of shape (batch_size, input_dim).
 
-    )
-
-    self.rnn2 = nn.LSTM(
-
-      input_size=input_dim,
-
-      hidden_size=self.hidden_dim,
-
-      num_layers=1,
-
-      batch_first=True
-
-    )
-
-    self.output_layer = nn.Linear(self.hidden_dim, n_features)
-
-  def forward(self, x):
-    x = x.repeat(self.seq_len, 1)
-    x = x.reshape((-1, self.seq_len, self.input_dim))
-
-    x, (hidden_n, cell_n) = self.rnn1(x)
-    x, (hidden_n, cell_n) = self.rnn2(x)
-    x = x.reshape((-1, self.seq_len, self.hidden_dim))
-
-    return self.output_layer(x)
+        Returns:
+            Tensor: Reconstructed sequence of shape (batch_size, seq_len, n_features).
+        """
+        x = x.repeat(self.seq_len, 1)
+        x = x.reshape(-1, self.seq_len, self.input_dim)
+        x, _ = self.rnn1(x)
+        x, _ = self.rnn2(x)
+        x = x.reshape(-1, self.seq_len, self.hidden_dim)
+        return self.output_layer(x)
