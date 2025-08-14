@@ -145,13 +145,12 @@ See `requirements.txt` for the complete list.
 ## Development Status
 
 ⚠️ **Note**: Some visualization and analysis components are still work in progress and will be uploaded soon. This includes:
-- Advanced plotting utilities in Level-Two
-- Additional analysis notebooks
+- Advanced plotting utilities in Level-One
 - Extended visualization options
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Creative Commons Zero v1.0 Universal - see the [LICENSE](LICENSE) file for details.
 
 ## Citation
 
