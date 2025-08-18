@@ -4,7 +4,6 @@ pandas
 scikit-learn
 scipy
 hdbscan
-sklearn-extra
 tslearn
 torch
 torch-geometric

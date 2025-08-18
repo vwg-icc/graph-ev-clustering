@@ -28,8 +28,9 @@ cd ev-usage-clustering-energyai
 ```
 
 2. Create and activate a virtual environment:
+Make sure you have python 3.10 
 ```bash
-python -m venv ev-clustering-env
+python3.10 -m venv ev-clustering-env
 source ev-clustering-env/bin/activate  
 # On Windows: ev-clustering-env\Scripts\activate
 ```
