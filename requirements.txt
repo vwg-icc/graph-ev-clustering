@@ -1,4 +1,6 @@
 # Core data science libraries
+torch
+torch-geometric
 numpy==1.24.3
 pandas
 scikit-learn==1.3.0
@@ -6,9 +8,6 @@ scikit-learn-extra==0.3.0
 scipy
 hdbscan
 tslearn
-torch
-torch-geometric
-torch-cluster
 matplotlib
 seaborn
 plotly
@@ -18,4 +17,5 @@ tqdm
 natsort
 networkx
 python-louvain
+fastparquet
 
