@@ -287,7 +287,6 @@ def main():
     Main execution function.
     """
     logger.info("=== ETE Cluster Model Clustering ===")
-    
     try:
         create_output_directories()
         X, df = load_and_prepare_data()
