@@ -38,6 +38,7 @@ source ev-clustering-env/bin/activate
 3. Install dependencies:
 ```bash
 pip install -r requirements.txt
+pip install torch-cluster -f https://data.pyg.org/whl/torch-2.8.0+cpu.html
 ```
 
 ## Usage
