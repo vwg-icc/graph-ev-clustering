@@ -28,7 +28,7 @@ cd ev-usage-clustering-energyai
 ```
 
 2. Create and activate a virtual environment:
-Make sure you have python 3.10 
+- Make sure you have **Python 3.10** installed.
 ```bash
 python3.10 -m venv ev-clustering-env
 source ev-clustering-env/bin/activate  
@@ -56,6 +56,16 @@ Edit `config.json` to customize:
 - Clustering algorithms and parameters
 - Feature engineering settings
 - Output directories
+
+#### Constants
+Edit `level-one/constants.py` to change default settings for
+- Sampling and Frequency Settings
+- Energy & Domain Constants
+- File Paths and Dataset Configuration
+- Distance Matrix File Mapping
+- Feature Names and mapping
+- Number of vehicles to process (Car-demo data has only 75 vehicles). 
+To download the full dataset, please visit: [Electric vehicle telematics data from Audi e-tron SUVs in the United States](https://data.mendeley.com/datasets/4ptsn8pzz2/2)
 
 #### Running the Pipeline
 
