@@ -32,6 +32,7 @@ def create_output_directories():
     Create the necessary output directories if they don't exist.
     """
     directories = [
+        'results',
         'figures',
         'figures/heatmaps',
         'figures/histograms',

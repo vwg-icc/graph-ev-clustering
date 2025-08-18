@@ -23,8 +23,8 @@ The diagram above illustrates the overall pipeline, showing the flow from raw da
 
 1. Clone the repository:
 ```bash
-git clone https://gitlab.yaday.io/guard-ion/ev-usage-clustering-energyai.git
-cd ev-usage-clustering-energyai
+git clone https://github.com/vwg-icc/graph-ev-clustering.git
+cd graph-ev-clustering
 ```
 
 2. Create and activate a virtual environment:
@@ -85,6 +85,11 @@ This script:
 ```bash
 python run_experiment.py
 ```
+> **Note:** Before running the experiments, ensure you have updated the following configuration files with the correct file paths:
+>
+> - In `level-one/config.py`: Set the `features_dir` variable to point to the directory containing your preprocessed files.
+> - In `level-two/config.py`: Update `DATA_CONFIG['csv_file']` to reference the correct preprocessed CSV files generated from Level-One.
+
 This script:
 - Loads preprocessed data
 - Runs specified clustering algorithms
