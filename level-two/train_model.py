@@ -286,7 +286,9 @@ def main():
     Main execution function.
     """
     logger.info("=== ETE Cluster Model Clustering ===")
-    
+    if not os.path.exists("results"):
+        os.makedirs("results")
+        logger.info("Created results directory")
     try:
         create_output_directories()
         X, df = load_and_prepare_data()
