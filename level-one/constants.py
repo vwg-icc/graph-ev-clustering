@@ -17,7 +17,7 @@ LAST_DATE_CONST = '2020-06-01 00:00:00'  # Last timestamp considered in dataset
 #   File Paths and Dataset Configuration
 # ───────────────────────────────────────────────────────────────
 DATA_FILENAME = "data/car-demo-data.parquet"  # Raw dataset location
-TOTAL_VINS = 3200                                     # Number of vehicles (VINs) to use
+TOTAL_VINS = 75                                     # Number of vehicles (VINs) to use
 STORAGE_DIR = f'files/preprocessed/VINS_{TOTAL_VINS}'  # Output directory
 
 # ───────────────────────────────────────────────────────────────
