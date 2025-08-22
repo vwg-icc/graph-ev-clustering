@@ -2,18 +2,11 @@ import os
 import glob
 import numpy as np
 import pandas as pd
-import joblib
-from sklearn.manifold import MDS
-import time
 import matplotlib.pyplot as plt
-from sklearn.metrics import pairwise_distances
-from scipy.spatial.distance import cdist
-from matplotlib.backends.backend_pdf import PdfPages
 import seaborn as sns
-from constants import DIST_FILENAMES, STORAGE_DIR, FREQUENCY,FEATURE_NAMES, WEEK_MEASUREMENTS,FEAT_IDX,FEAT_LABEL, TOTAL_VINS
-import time
+from constants import STORAGE_DIR, FREQUENCY,FEATURE_NAMES
 import seaborn as sns
-from utils import get_train_vins
+
 
 def plot_kde(params):
     """
@@ -29,7 +22,7 @@ def plot_kde(params):
     freq = FREQUENCY # sampling rate
     week = int(10080/int(freq[:-3])) # number of measurements in a week
 
-    features = ['Home','SOC','delta_soc','weekly_mile','dod','charging_power_level','charging_energy_kwh','weekly_cycle',   'delta_mile', 'delta_energy', 'velocity',]
+    features = FEATURE_NAMES
     num_features = len(features) # number of features
     print('features:', num_features)
     folder = STORAGE_DIR + '/' + freq 
