@@ -23,12 +23,7 @@ def plot_kde(params):
     week = int(10080/int(freq[:-3])) # number of measurements in a week
 
     features = FEATURE_NAMES
-    num_features = len(features) # number of features
-    print('features:', num_features)
     folder = STORAGE_DIR + '/' + freq 
-    print('folder: ' + folder)
-
-    print('loading data - reading from output')
     #read from saved_csv
     k=params.n_clusters
 
@@ -39,7 +34,6 @@ def plot_kde(params):
     labels = output['cluster'][output['cluster']>-1].values
 
     #get the data
-    print('loading data - reading from dataset')
     csvfiles = sorted(glob.glob(os.path.join(folder, '*.csv'))) # get list of all files from dataset
     all_df = [] # contains all VIN data
     for file in csvfiles:
@@ -49,8 +43,7 @@ def plot_kde(params):
 
     grouped_df = all_df.groupby('VIN')
 
-    # #depth of discharge
-    print('Plotting Depth of Discharge')
+    # depth of discharge
     plt.figure()
     for l in sorted(set(labels)):
         cl = output[output['cluster'] == l].reset_index()
@@ -75,7 +68,6 @@ def plot_kde(params):
 
 
     # charging energy per cycle
-    print('Plotting Charging Energy per cycle')
     plt.figure()
     for l in sorted(set(labels)):
         cl = output[output['cluster'] == l].reset_index()
@@ -100,7 +92,6 @@ def plot_kde(params):
     plt.show()
 
     # total charging energy per week
-    print('Plotting Total Charging Energy per Week')
     plt.figure()
     for l in sorted(set(labels)):
         cl = output[output['cluster'] == l].reset_index()
@@ -125,7 +116,6 @@ def plot_kde(params):
     plt.show()
 
     # charging duration per cycle
-    print('Plotting Charging Duration per Cycle')
     plt.figure()
     for l in sorted(set(labels)):
         cl = output[output['cluster'] == l].reset_index()
@@ -150,7 +140,6 @@ def plot_kde(params):
     plt.show()
 
     # total charging time per week
-    print('Total Charging Time per Week')
     plt.figure()
     for l in sorted(set(labels)): #labels = [0,1,2,3,4,5]
         cl = output[output['cluster'] == l].reset_index() #output is a table with VIN, week (a number), cluster (a number)
