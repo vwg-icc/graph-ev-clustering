@@ -79,7 +79,7 @@ if __name__ == "__main__":
         logger.info(f"Output saved → {output_filename} | Shape: {output.shape}")
 
         logger.info("Plotting and saving KDE plots")
-        os.mkdir('Figures')
+        os.makedirs(params.figures_dir, exist_ok=True)
         plot_kde(params)
         logger.info(f"KDE plots saved")
 
