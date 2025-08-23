@@ -8,6 +8,7 @@ class Config:
     A dataclass for storing configuration parameters.
     """
     features_dir: str
+    figures_dir: str
     n_clusters: int
     cluster_algo: str
     max_iter: int

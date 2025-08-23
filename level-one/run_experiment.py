@@ -12,6 +12,7 @@ from utils import (
     create_non_drop_data_arr,
     get_train_vins
 )
+from plot_utils import plot_kde
 
 # Logging config
 logging.basicConfig(
@@ -76,6 +77,11 @@ if __name__ == "__main__":
         output_filename = f"{base_dir}/output.csv"
         output.to_csv(output_filename, index=False)
         logger.info(f"Output saved → {output_filename} | Shape: {output.shape}")
+
+        logger.info("Plotting and saving KDE plots")
+        os.makedirs(params.figures_dir, exist_ok=True)
+        plot_kde(params)
+        logger.info(f"KDE plots saved")
 
         logger.info(f"Pipeline complete | Total time: {time.time() - start:.2f} sec")
 

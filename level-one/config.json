@@ -1,5 +1,6 @@
 {
     "features_dir": "files/preprocessed/VINS_75/10min/",
+    "figures_dir": "Figures",
     "distance_threshold": 500,
     "n_clusters": 6,
     "cluster_algo": "kmedoids",
