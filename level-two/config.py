@@ -2,7 +2,7 @@
 
 
 DATA_CONFIG = {
-    'csv_file': '../level-one/files/preprocessed/VINS_50/10min/kmedoids/K_6_distance_manhattan_random_0/output.csv',
+    'csv_file': '../level-one/files/preprocessed/VINS_75/10min/kmedoids/K_6_distance_manhattan_random_0/output.csv',
     'method': 'kmedoids',  # 'kmeans' or 'kmedoids'
     'index_column': 'vin',
     'columns': 'week',

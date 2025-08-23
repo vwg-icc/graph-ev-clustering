@@ -32,6 +32,7 @@ def create_output_directories():
     Create the necessary output directories if they don't exist.
     """
     directories = [
+        'results',
         'figures',
         'figures/heatmaps',
         'figures/histograms',
@@ -286,7 +287,6 @@ def main():
     Main execution function.
     """
     logger.info("=== ETE Cluster Model Clustering ===")
-    
     try:
         create_output_directories()
         X, df = load_and_prepare_data()
