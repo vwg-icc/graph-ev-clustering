@@ -158,7 +158,7 @@ See `requirements.txt` for the complete list.
 
 ## License
 
-Creative Commons Zero v1.0 Universal - see the [LICENSE](LICENSE) file for details.
+Attribution-NonCommercial-NoDerivatives 4.0 International - see the [LICENSE](LICENSE) file for details.
 
 ## Citation
 
