@@ -1,4 +1,4 @@
-# EV Usage Clustering with EnergyAI
+# EV Usage Clustering for Energy and AI Paper
 
 **Official implementation of our paper**: [Graph-based two-level clustering for electric vehicle usage patterns](https://doi.org/10.1016/j.egyai.2025.100539) (Energy and AI, 2025)
 
